@@ -3,13 +3,13 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import {Container, Row, Col} from 'react-bootstrap';
-
+import MyImg from "./nature.jpg"
 class App extends React.Component {
    state = {
      Person: {
        fullName: "Makrem Ellouze",
        bio: "Produit",
-       imgSrc: "./nature.jpg",
+       imgSrc: MyImg,
        profession: "Developpeur",
       },
        show: true
