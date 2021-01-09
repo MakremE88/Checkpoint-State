@@ -6,6 +6,7 @@ import {Container, Row, Col} from 'react-bootstrap';
 import MyImg from "./nature.jpg"
 class App extends React.Component {
    state = {
+     counter: 0,
      Person: {
        fullName: "Makrem Ellouze",
        bio: "Produit",
@@ -21,8 +22,14 @@ class App extends React.Component {
     
     };
     componentDidMount() {
+      let count = 0;
       setInterval(() => {
-        console.log ("Time since component has mounted")
+        count ++;
+        this.setState ({
+          counter : count
+        }
+
+        )
       }, 1000)
     }
 
@@ -35,11 +42,13 @@ class App extends React.Component {
                 <>
                   <Col xs lg="12" className="text-primary"><h1>{this.state.Person.fullName}</h1></Col>
                   <Col xs lg="12" className="text-secondary"><h2>{this.state.Person.bio}</h2></Col>
-                  <Col xs lg="12" className="text-secondary"><h2>{this.state.Person.profession}</h2></Col><Col xs lg="12" className="mt-3 mb-3"><img src={this.state.Person.imgSrc} width={150} height={150}alt="Nature"></img></Col>
+                  <Col xs lg="12" className="text-secondary"><h2>{this.state.Person.profession}</h2></Col>
+                  <Col xs lg="12" className="mt-3 mb-3"><img src={this.state.Person.imgSrc} width={150} height={150}alt="Nature"></img></Col>
 
                 </>
               )}
               <Button variant="outline-primary" className="mt-3" onClick={this.handleShowPerson}>Click here</Button>
+              <Col xs lg="12" className="text-secondary"><p>{this.state.counter}</p></Col>
             </Row>
           </Container>
         </>
